@@ -1,0 +1,24 @@
+on: push
+name: Build and Publish
+jobs:
+  FTP-Deploy-Action:
+    name: FTP-Deploy-Action
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    
+    - name: Npm Version
+      run: npm --version
+      
+    - name: Npm Install
+      run: npm install
+    - name: Build React
+      run: sudo npm run-script build
+
+    - name: FTP Deploy
+      uses: SamKirkland/FTP-Deploy-Action@2.0.0
+      env:
+        FTP_SERVER: ftp.react-hooks-todo-bootstrap.zcntech.com
+        FTP_USERNAME: dev@react-hooks-todo-bootstrap.zcntech.com
+        FTP_PASSWORD: T$t9jq49
+        LOCAL_DIR: build
