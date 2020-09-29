@@ -1,2 +1,3 @@
-# react-hooks-todo-bootstrap
-React Hooks Todo List example with bootstrap component
+
+## React Bootstrap ekleme
+    npm install react-bootstrap bootstrap
